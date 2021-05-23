@@ -5,21 +5,19 @@ using System;
 
 public class ButtonsHandler : MonoBehaviour
 {
-    public event Action OnWipeRecord;
+    public SoundOptionsHolder soundOptionsHolder;
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.N))
-            StartGame();
-    }
+    public event Action OnWipeRecord;
 
     public void StartGame()
     {
+        soundOptionsHolder.RememberVolume();
         SceneManager.LoadScene("Field");
     }
 
     public void Quit()
     {
+        soundOptionsHolder.RememberVolume();
         Application.Quit();
     }
 
