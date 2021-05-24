@@ -7,8 +7,11 @@ public class ButtonMouseEnterSound : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip sound;
 
+    public bool muted = false;
+
     private void OnMouseEnter()
     {
-        audioSource.PlayOneShot(sound);
+        if(!muted)
+            audioSource.PlayOneShot(sound);
     }
 }

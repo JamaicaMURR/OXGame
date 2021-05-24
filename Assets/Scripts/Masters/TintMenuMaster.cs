@@ -11,8 +11,8 @@ public class TintMenuMaster : MonoBehaviour
 
     public GameObject buttons;
 
-    public Button backButton;
-    public Button retryButton;
+    public GameObject backButton;
+    public GameObject retryButton;
 
     //==================================================================================================================================================================
     private void Awake()
@@ -26,8 +26,11 @@ public class TintMenuMaster : MonoBehaviour
 
             if(central.heartsMaster.isNoUnits)
             {
-                backButton.interactable = false;
-                retryButton.interactable = true;
+                backButton.GetComponent<Button>().interactable = false;
+                backButton.GetComponent<ButtonMouseEnterSound>().muted = true;
+
+                retryButton.GetComponent<Button>().interactable = true;
+                retryButton.GetComponent<ButtonMouseEnterSound>().muted = false;
             }
         };
     }
