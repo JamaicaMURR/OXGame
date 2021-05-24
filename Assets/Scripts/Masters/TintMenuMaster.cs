@@ -10,6 +10,7 @@ public class TintMenuMaster : MonoBehaviour
     public Fader tintFader;
 
     public GameObject buttons;
+
     public Button backButton;
     public Button retryButton;
 
