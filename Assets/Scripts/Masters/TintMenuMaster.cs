@@ -10,6 +10,8 @@ public class TintMenuMaster : MonoBehaviour
     public Fader tintFader;
 
     public GameObject buttons;
+    public Button backButton;
+    public Button retryButton;
 
     //==================================================================================================================================================================
     private void Awake()
@@ -17,7 +19,16 @@ public class TintMenuMaster : MonoBehaviour
         central.inputHandler.OnLock += FadeIn;
         central.inputHandler.OnUnlock += FadeOut;
 
-        tintFader.OnFadeInEnd += delegate () { buttons.SetActive(true); };
+        tintFader.OnFadeInEnd += delegate ()
+        {
+            buttons.SetActive(true);
+
+            if(central.heartsMaster.isNoUnits)
+            {
+                backButton.interactable = false;
+                retryButton.interactable = true;
+            }
+        };
     }
 
     //==================================================================================================================================================================
