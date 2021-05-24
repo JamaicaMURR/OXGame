@@ -6,14 +6,14 @@ using System.Collections.Generic;
 public class MessageMaster : MonoBehaviour
 {
     float _timer;
+    int _lastPriority;
 
     Queue<string> messagesQueue;
 
     public CentralPort central;
     public Text textField;
 
-    public Font regularFont;
-    public Font boldFont;
+    public Font font;
 
     public Color warning;
     public Color attention;
@@ -23,12 +23,12 @@ public class MessageMaster : MonoBehaviour
 
     void Awake()
     {
-        central.inputHandler.OnPause += delegate () { ShowMessage("Pause", regular); };
+        central.inputHandler.OnPause += delegate () { ShowMessage("Pause", regular, 2); };
         central.inputHandler.OnUnPause += SetClean;
-        central.inputHandler.OnPauserUsing += delegate () { ShowMessage("Light speed!", attention); };
+        central.inputHandler.OnPauserUsing += delegate () { ShowMessage("Light speed!", attention, 3); };
 
-        central.heartsMaster.OnUnitLost += delegate () { ShowMessage("Life lost!", warning); };
-        central.heartsMaster.OnZeroUnits += delegate () { ShowMessage("Game Over", warning); };
+        central.heartsMaster.OnUnitLost += delegate () { ShowMessage("Life lost!", warning, 4); };
+        central.heartsMaster.OnZeroUnits += delegate () { ShowMessage("Game Over", warning, 5); };
 
         central.mergeMaster.AtMerged += delegate (int i)
         {
@@ -37,11 +37,11 @@ public class MessageMaster : MonoBehaviour
                 string text = i + " merged!";
 
                 if(i > 8)
-                    ShowMessage("Unbelievable! " + text, attention);
+                    ShowMessage("Unbelievable! " + text, attention, 4);
                 else if(i > 6)
-                    ShowMessage("Aweesome!" + text, attention);
+                    ShowMessage("Aweesome!" + text, attention, 2);
                 else if(i > 4)
-                    ShowMessage("Nice!" + text, attention);
+                    ShowMessage("Nice!" + text, attention, 1);
                 else if(i > 2)
                     ShowMessage(text, regular);
             }
@@ -58,24 +58,23 @@ public class MessageMaster : MonoBehaviour
 
     void ShowMessage(string message, Color color)
     {
-        ShowMessage(message, color, false);
+        ShowMessage(message, color, 0);
     }
 
-    void ShowMessage(string message, Color color, bool bold)
+    void ShowMessage(string message, Color color, int priority)
     {
-        if(bold)
-            textField.font = boldFont;
-        else
-            textField.font = regularFont;
-
-        textField.color = color;
-        textField.text = message;
-        _timer = 0;
+        if(priority > _lastPriority)
+        {
+            textField.color = color;
+            textField.text = message;
+            _timer = 0;
+        }
     }
 
     void SetClean()
     {
         textField.text = "";
         _timer = 0;
+        _lastPriority = -1;
     }
 }
