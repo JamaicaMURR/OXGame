@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonMouseEnterSound : MonoBehaviour
+public class MouseEnterSound : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip sound;

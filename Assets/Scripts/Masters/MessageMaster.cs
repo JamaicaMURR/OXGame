@@ -34,7 +34,7 @@ public class MessageMaster : MonoBehaviour
         {
             if(i > 1)
             {
-                string text = i + " merged!";
+                string text = i + " merged";
 
                 if(i > 8)
                     ShowMessage("Unbelievable! " + text, attention, 4);

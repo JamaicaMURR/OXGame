@@ -27,10 +27,10 @@ public class TintMenuMaster : MonoBehaviour
             if(central.heartsMaster.isNoUnits)
             {
                 backButton.GetComponent<Button>().interactable = false;
-                backButton.GetComponent<ButtonMouseEnterSound>().muted = true;
+                backButton.GetComponent<MouseEnterSound>().muted = true;
 
                 retryButton.GetComponent<Button>().interactable = true;
-                retryButton.GetComponent<ButtonMouseEnterSound>().muted = false;
+                retryButton.GetComponent<MouseEnterSound>().muted = false;
             }
         };
     }

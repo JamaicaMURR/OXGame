@@ -109,6 +109,8 @@ public class FieldInputHandler : MonoBehaviour
 
             isLocked = false;
 
+            central.soundOptionsHolder.RememberVolume();
+
             if(OnUnlock != null)
                 OnUnlock();
         }
@@ -117,6 +119,8 @@ public class FieldInputHandler : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1; // If retry used when game paused or locked
+
+        central.soundOptionsHolder.RememberVolume();
 
         SceneManager.LoadScene("Field");
     }
@@ -127,6 +131,8 @@ public class FieldInputHandler : MonoBehaviour
             OnEscape();
 
         Time.timeScale = 1; // If esccape used when game is paused or locked
+
+        central.soundOptionsHolder.RememberVolume();
 
         SceneManager.LoadScene("Menu");
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TintMenuInfoTextScript : MonoBehaviour
+public class TintMenuInfoText : MonoBehaviour
 {
     public CentralPort central;
     public Text textField;
@@ -13,7 +13,7 @@ public class TintMenuInfoTextScript : MonoBehaviour
 
     public string noRecordMessage = "No new record";
     public string newRecordMessage = "New record!";
-    public string underRecordMessage = " under record";
+    public string underRecordMessage = " before record";
     public string overRecordMessage = " over record";
 
     private void OnEnable()

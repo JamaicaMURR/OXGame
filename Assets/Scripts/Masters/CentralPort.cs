@@ -14,4 +14,5 @@ public class CentralPort : MonoBehaviour
     public MessageMaster messageMaster;
     public IndependentClocks independentClocks;
     public PopupsMaster popupsMaster;
+    public SoundOptionsHolder soundOptionsHolder;
 }
