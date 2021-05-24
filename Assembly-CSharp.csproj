@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\SliderSoundVolumeUpdater.cs" />
     <Compile Include="Assets\Classes\Cell.cs" />
     <Compile Include="Assets\Scripts\CollidePlayer.cs" />
+    <Compile Include="Assets\DJMaster.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Libs\Bycicles.dll" />
