@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Masters\SpawnMaster.cs" />
     <Compile Include="Assets\Scripts\Masters\SoundOptionsHolder.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
+    <Compile Include="Assets\Scripts\Masters\SoundsMaster.cs" />
     <Compile Include="Assets\Scripts\PopUpSpawner.cs" />
     <Compile Include="Assets\Scripts\Masters\DifficultyMaster.cs" />
     <Compile Include="Assets\Scripts\Masters\HeartsMaster.cs" />
@@ -97,7 +98,7 @@
     <Compile Include="Assets\Scripts\Masters\CentralPort.cs" />
     <Compile Include="Assets\Scripts\SliderSoundVolumeUpdater.cs" />
     <Compile Include="Assets\Classes\Cell.cs" />
-    <Compile Include="Assets\Scripts\Masters\SoundsMaster.cs" />
+    <Compile Include="Assets\Scripts\CollidePlayer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Libs\Bycicles.dll" />

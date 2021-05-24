@@ -28,11 +28,7 @@ public class SoundsMaster : MonoBehaviour
 
         central.heartsMaster.OnUnitLost += delegate () { soundSource.PlayOneShot(heartLostSound); };
 
-        central.heartsMaster.OnZeroUnits += delegate ()
-        {
-            soundSource.PlayOneShot(gameOverSound);
-            musicSource.Stop();
-        };
+        central.heartsMaster.OnZeroUnits += delegate () { soundSource.PlayOneShot(gameOverSound); };
 
         central.mergeMaster.AtMerged += delegate (int i)
         {
