@@ -17,9 +17,14 @@ public class SoundsMaster : MonoBehaviour
     public AudioClip lowMergeSound;
     public AudioClip highMergeSound;
 
+    public AudioClip onLightSpeedSound;
+
     private void Awake()
     {
         xBehavior.OnSuccefulMove += delegate () { soundSource.PlayOneShot(xMovingSound); };
+
+        central.pausersMaster.OnUnitLost += delegate () { soundSource.PlayOneShot(onLightSpeedSound); };
+        central.pausersMaster.OnZeroUnits += delegate () { soundSource.PlayOneShot(onLightSpeedSound); };
 
         central.heartsMaster.OnUnitLost += delegate () { soundSource.PlayOneShot(heartLostSound); };
 
