@@ -19,10 +19,13 @@ public class DifficultyMaster : MonoBehaviour
     public float highSpawnPeriodFluctuationLimit = 0.25f;
 
     public int maximalSpawnPeriodAtWhitesCount = 5;
+    public int stopSpawnAtWhitesOnField = 5;
 
     public float oDefaultSpeed = 0.75f;
     public float oOnDarkCellSpeed = 2;
     public float oMergeDashSpeed = 5;
+
+    public bool StopSpawn { get { return central.spawnMaster.WhitesOnField >= stopSpawnAtWhitesOnField; } }
 
     public float SpawnPeriod { get { return CalculateSpawnPeriod(); } }
 
@@ -42,7 +45,11 @@ public class DifficultyMaster : MonoBehaviour
 
     float CalculateSpawnPeriod()
     {
+        float minimalThreshold = (AverSpawnPeriod - lowSpawnPeriodFluctuationLimit).NotBelow(0);
+        float maximalThreshold = AverSpawnPeriod + highSpawnPeriodFluctuationLimit;
         float whitesDensity = (float)central.spawnMaster.WhitesOnField.NotAbove(maximalSpawnPeriodAtWhitesCount) / maximalSpawnPeriodAtWhitesCount;
-        return (AverSpawnPeriod - lowSpawnPeriodFluctuationLimit).NotBelow(0) + (lowSpawnPeriodFluctuationLimit + highSpawnPeriodFluctuationLimit) * whitesDensity;
+        float modificator = (maximalThreshold - minimalThreshold) * whitesDensity;
+
+        return minimalThreshold + modificator;
     }
 }

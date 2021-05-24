@@ -24,10 +24,11 @@ public class SpawnMaster : MonoBehaviour
         _timer = central.difficultyMaster.SpawnPeriod; // For imidiate first spawn
 
         foreach(Spawner s in spawners)
-            s.OnRelease += delegate () { _whitesOnField++; }; // Each released O must be counted
+            s.OnSpawnBegining += delegate () { _whitesOnField++; }; // Each released O must be counted
 
         central.mergeMaster.OnOrangeRegister += delegate () { _whitesOnField--; };
         central.mergeMaster.AtMerged += delegate (int i) { _whitesOnField--; }; // Every merging eats one O that activate merging
+        central.heartsMaster.OnUnitLost += delegate () { _whitesOnField--; }; 
     }
 
     //==================================================================================================================================================================
@@ -35,7 +36,7 @@ public class SpawnMaster : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if(_timer >= central.difficultyMaster.SpawnPeriod)
+        if(_timer >= central.difficultyMaster.SpawnPeriod && !central.difficultyMaster.StopSpawn)
             Spawn();
     }
 
@@ -47,7 +48,7 @@ public class SpawnMaster : MonoBehaviour
         if(spawners[chosenIndex].IsReadyToSpawn())
         {
             spawners[chosenIndex].Spawn();
-            _timer -= central.difficultyMaster.SpawnPeriod;
+            _timer = 0;
         }
     }
 }
