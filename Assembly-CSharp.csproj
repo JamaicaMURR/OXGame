@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{8C88168C-AFA8-630F-9695-3619C5972F78}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -104,7 +103,7 @@
     <Compile Include="Assets\Scripts\Masters\DJMaster.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Libs\Bycicles.dll" />
+     <None Include="Assets\Libs\Bycicles.dll" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Program_Files\2020.3.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -758,7 +757,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
