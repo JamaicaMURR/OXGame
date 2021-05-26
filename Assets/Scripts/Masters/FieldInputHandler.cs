@@ -15,6 +15,12 @@ public class FieldInputHandler : MonoBehaviour
     public CentralPort central;
 
     public XBehavior xBehavior;
+    public TapSensor xTapSensor;
+
+    public CursorDetector upCursorDetector;
+    public CursorDetector downCursorDetector;
+    public CursorDetector leftCursorDetector;
+    public CursorDetector rightCursorDetector;
 
     public event Action OnPause;
     public event Action OnUnPause;
@@ -75,6 +81,27 @@ public class FieldInputHandler : MonoBehaviour
 
                 if(Input.GetButtonDown("Right"))
                     xBehavior.TryToMove(Direction.Right);
+
+                if(xTapSensor.triggerState)
+                {
+                    if(upCursorDetector.cursorOver)
+                    {
+                        xBehavior.TryToMove(Direction.Up);
+                    }
+                    else if(downCursorDetector.cursorOver)
+                    {
+                        xBehavior.TryToMove(Direction.Down);
+                    }
+                    else if(leftCursorDetector.cursorOver)
+                    {
+                        xBehavior.TryToMove(Direction.Left);
+                    }
+                    else if(rightCursorDetector.cursorOver)
+                    {
+                        xBehavior.TryToMove(Direction.Right);
+                    }
+
+                }
             }
         }
         else
