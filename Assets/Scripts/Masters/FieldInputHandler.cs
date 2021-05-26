@@ -108,9 +108,6 @@ public class FieldInputHandler : MonoBehaviour
         {
             if(Input.GetButtonDown("EscapeToMenu") && !central.heartsMaster.isNoUnits)
                 UnlockGame();
-
-            if(Input.GetKeyDown(KeyCode.R))
-                Retry();
         }
     }
 

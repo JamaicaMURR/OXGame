@@ -37,7 +37,7 @@ public class PointsMaster : MonoBehaviour
 
     void Update()
     {
-        _timePassed += Time.deltaTime;
+        _timePassed += central.independentClocks.DeltaTime;
 
         displayField.text = _dispalyPoints.ToString();
 
