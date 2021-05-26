@@ -5,3 +5,4 @@ using System.Text;
 
 
 public delegate void IntEvent(int value);
+public delegate void RawConsumer(float raw);
