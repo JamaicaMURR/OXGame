@@ -371,3 +371,6 @@ Library/
 #Builds
 Builds/
 WebGLBuilds/
+
+#TextMeshPro
+Assets/TextMesh Pro/

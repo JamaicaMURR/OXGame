@@ -1,6 +1,4 @@
 using Bycicles.Ranges;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DifficultyMaster : MonoBehaviour

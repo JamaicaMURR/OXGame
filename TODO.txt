@@ -1,12 +1,18 @@
 OX Game TODO list
 
-v 1) Управление мышью
-v 2) Исправить таблицу бонусов в декоре (8 нулей не +2 ls, а+3)
-v 3) Иконки!
-v 4) Название
-v 5) independent clocks for pointMaster
-6) SVG text decorations for better visibility
-7) Sound effects of game over, pause, unpause, becoming orange
-8) Tests of difficulty
-9) Square for X at mouse control
-10) Initial tips
+TODO==========================================================================================================
+Sound effects of game over, pause, unpause, becoming orange
+Initial tips
+
+DONE==========================================================================================================
+v Исправить таблицу бонусов в декоре (8 нулей не +2 ls, а+3)
+v Иконки!
+v Название
+v independent clocks for pointMaster
+v Tests of difficulty
+
+v Управление мышью // <=============================================================== REVERTED
+
+SVG text decorations for better visibility //========================================= CANCELLED
+Square for X at mouse control // <==================================================== CANCELLED
+
