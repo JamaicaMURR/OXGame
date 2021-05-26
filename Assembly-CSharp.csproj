@@ -101,7 +101,6 @@
     <Compile Include="Assets\Classes\Cell.cs" />
     <Compile Include="Assets\DJMaster.cs" />
     <Compile Include="Assets\Scripts\TapSensor.cs" />
-    <Compile Include="Assets\Scripts\CursorDetector.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
