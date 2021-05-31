@@ -17,6 +17,8 @@ public class SoundsMaster : MonoBehaviour
     public AudioClip lowMergeSound;
     public AudioClip highMergeSound;
 
+    public AudioClip onPauseSound;
+
     public AudioClip onLightSpeedSound;
 
     private void Awake()
@@ -37,5 +39,8 @@ public class SoundsMaster : MonoBehaviour
             else
                 soundSource.PlayOneShot(highMergeSound);
         };
+
+        central.inputHandler.OnPause += delegate () { soundSource.PlayOneShot(onPauseSound); };
+        central.inputHandler.OnUnPause += delegate () { soundSource.PlayOneShot(onPauseSound); };
     }
 }
