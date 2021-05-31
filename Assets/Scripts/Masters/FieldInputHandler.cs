@@ -29,6 +29,8 @@ public class FieldInputHandler : MonoBehaviour
         central.heartsMaster.OnZeroUnits += LockGame;
         xBehavior.OnSuccefulMove += CheckOnXMoving;
 
+        Cursor.visible = false;
+
         Check = Idle;
     }
 
@@ -92,6 +94,8 @@ public class FieldInputHandler : MonoBehaviour
             Time.timeScale = 0;
             isLocked = true;
 
+            Cursor.visible = true;
+
             if(OnLock != null)
                 OnLock();
         }
@@ -107,6 +111,8 @@ public class FieldInputHandler : MonoBehaviour
             isLocked = false;
 
             central.soundOptionsHolder.RememberVolume();
+
+            Cursor.visible = false;
 
             if(OnUnlock != null)
                 OnUnlock();
