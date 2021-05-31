@@ -16,16 +16,16 @@ public class Pop : MonoBehaviour
 
     public bool evaporateAtStart = false;
 
-    Func<float> GetDeltaTime;
+    Func<float> GetDeltaT;
     RawConsumer FadeText;
     RawConsumer FadeSprite;
 
     private void Awake()
     {
         if(indieClocks != null)
-            GetDeltaTime = delegate () { return indieClocks.DeltaTime; };
+            GetDeltaT = delegate () { return indieClocks.DeltaTime; };
         else
-            GetDeltaTime = delegate () { return Time.deltaTime; };
+            GetDeltaT = delegate () { return Time.deltaTime; };
 
         textField = GetComponent<Text>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -64,12 +64,12 @@ public class Pop : MonoBehaviour
 
         while(expiredTime < fadingTime)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + evaporatingSpeed * GetDeltaTime(), transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y + evaporatingSpeed * GetDeltaT(), transform.position.z);
 
             FadeText(expiredTime);
             FadeSprite(expiredTime);
 
-            expiredTime += GetDeltaTime();
+            expiredTime += GetDeltaT();
 
             yield return new WaitForEndOfFrame();
         }
