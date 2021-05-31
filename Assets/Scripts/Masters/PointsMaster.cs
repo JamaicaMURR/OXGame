@@ -51,13 +51,20 @@ public class PointsMaster : MonoBehaviour
     }
 
     //==================================================================================================================================================================
+    public int CalcReward(int totalMerged)
+    {
+        int mergesToReward = totalMerged - 1;
+        int rewardPoints = (int)((2 * mergeReward + progressionBonus * (mergesToReward - 1)) / 2f * mergesToReward); // summ of members of arithmetic progression
+
+        return rewardPoints;
+    }
+
+    //==================================================================================================================================================================
     void Reward(int totalMerged)
     {
-        int mergesToReward = totalMerged - 1; // no reward for 1 merged O
-
-        if(mergesToReward > 0)
+        if(totalMerged > 1)
         {
-            int rewardPoints = (int)((2 * mergeReward + progressionBonus * (mergesToReward - 1)) / 2f * mergesToReward); // summ of members of arithmetic progression
+            int rewardPoints = CalcReward(totalMerged);
 
             int pausersReward = totalMerged - pauserBonusPlank + 1;
             int heartsReward = totalMerged - heartBonusPlank + 1;
@@ -92,4 +99,5 @@ public class PointsMaster : MonoBehaviour
         if(points > oldRec)
             PlayerPrefs.SetInt("record", points);
     }
+
 }

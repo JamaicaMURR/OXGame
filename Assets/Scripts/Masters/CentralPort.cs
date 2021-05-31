@@ -15,4 +15,5 @@ public class CentralPort : MonoBehaviour
     public IndependentClocks independentClocks;
     public PopupsMaster popupsMaster;
     public SoundOptionsHolder soundOptionsHolder;
+    public DynamicPopUpSpawner dynamicPopUps;
 }

@@ -33,11 +33,13 @@ public class MergeMaster : MonoBehaviour
             OnOrangeRegister();
     }
 
-    public void MergeAt(NetPosition position)
+    public void MergeAt(NetPosition position, Transform initiator)
     {
         int totalMerged = 0;
 
         MergeAt(position, ref totalMerged);
+
+        central.dynamicPopUps.Pop("+" + central.pointsMaster.CalcReward(totalMerged), initiator);
 
         if(AtMerged != null)
             AtMerged(totalMerged);

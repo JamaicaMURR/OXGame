@@ -271,7 +271,7 @@ public class OBehavior : MonoBehaviour
 
     void Merge()
     {
-        _central.mergeMaster.MergeAt(_netMember.Position);
+        _central.mergeMaster.MergeAt(_netMember.Position, transform);
 
         DeleteGhosts();
         UnSubscribeAll();
